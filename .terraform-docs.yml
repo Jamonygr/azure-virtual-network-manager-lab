@@ -1,0 +1,15 @@
+formatter: markdown table
+settings:
+  anchor: true
+  color: false
+  default: true
+  description: true
+  escape: true
+  hide-empty: true
+  html: true
+  indent: 2
+  lockfile: true
+  read-comments: true
+  required: true
+  sensitive: true
+  type: true

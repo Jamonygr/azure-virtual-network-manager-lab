@@ -1,0 +1,29 @@
+# Terraform working data and local state
+**/.terraform/*
+*.tfstate
+*.tfstate.*
+*.tfplan
+crash.log
+crash.*.log
+
+# Local variable and override files
+*.auto.tfvars
+*.auto.tfvars.json
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+!terraform.tfvars.example
+
+# Test, security, and editor output
+testResults.xml
+coverage.xml
+results.sarif
+.checkov/
+.trivycache/
+.cache/
+.idea/
+.vscode/
+*.swp
+.DS_Store
+Thumbs.db

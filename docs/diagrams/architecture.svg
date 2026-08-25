@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="650" viewBox="0 0 1120 650" role="img" aria-labelledby="title desc">
+  <title id="title">Azure Virtual Network Manager lab architecture</title>
+  <desc id="desc">One subscription-scoped manager controls IPAM, four groups, connectivity, security, and routing for hub, app, and data virtual networks.</desc>
+  <defs>
+    <style>
+      .bg{fill:#f7f9fc}.panel{fill:#fff;stroke:#2563eb;stroke-width:2}.group{fill:#eef6ff;stroke:#4f83cc;stroke-width:1.5}.net{fill:#f0fdf4;stroke:#15803d;stroke-width:2}.title{font:700 22px Segoe UI,Arial;fill:#10233f}.head{font:700 16px Segoe UI,Arial;fill:#10233f}.text{font:14px Segoe UI,Arial;fill:#26364a}.small{font:12px Segoe UI,Arial;fill:#405269}.line{stroke:#64748b;stroke-width:2;fill:none}.dash{stroke:#7c3aed;stroke-width:2;stroke-dasharray:7 5;fill:none}.route{stroke:#b45309;stroke-width:2;stroke-dasharray:3 4;fill:none}
+    </style>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 10 5 0 10z" fill="#64748b"/></marker>
+  </defs>
+  <rect class="bg" width="1120" height="650" rx="18"/>
+  <text class="title" x="40" y="42">Azure Virtual Network Manager create-test-destroy lab</text>
+  <text class="small" x="40" y="66">West Europe · one disposable resource group · subscription-scoped management · no compute</text>
+
+  <rect class="panel" x="38" y="90" width="1044" height="100" rx="12"/>
+  <text class="head" x="60" y="120">Azure Virtual Network Manager</text>
+  <text class="text" x="60" y="146">Scope access: Connectivity · SecurityAdmin · Routing</text>
+  <text class="text" x="60" y="169">Three regional deployments with complete semantic goal-state hashes</text>
+  <rect class="group" x="660" y="106" width="188" height="64" rx="8"/><text class="head" x="674" y="132">IPAM root /12</text><text class="small" x="674" y="153">hub /16 · workload /16</text>
+  <rect class="group" x="862" y="106" width="194" height="64" rx="8"/><text class="head" x="876" y="132">Reserved /20</text><text class="small" x="876" y="153">10.241.240.0/20</text>
+
+  <text class="head" x="42" y="228">Teaching groups</text>
+  <rect class="group" x="38" y="244" width="238" height="80" rx="10"/><text class="head" x="54" y="272">Static spokes</text><text class="small" x="54" y="295">app + data VNets</text><text class="small" x="54" y="312">Hub-spoke connectivity</text>
+  <rect class="group" x="292" y="244" width="238" height="80" rx="10"/><text class="head" x="308" y="272">Static all VNets</text><text class="small" x="308" y="295">hub + app + data</text><text class="small" x="308" y="312">Mesh connectivity</text>
+  <rect class="group" x="546" y="244" width="238" height="80" rx="10"/><text class="head" x="562" y="272">Dynamic workloads</text><text class="small" x="562" y="295">run tags + Network.Data policy</text><text class="small" x="562" y="312">Security admin</text>
+  <rect class="group" x="800" y="244" width="282" height="80" rx="10"/><text class="head" x="816" y="272">Static workload subnets</text><text class="small" x="816" y="295">app + data subnets</text><text class="small" x="816" y="312">ManagedOnly routing</text>
+
+  <path class="line" marker-end="url(#arrow)" d="M157 324v63"/><path class="line" marker-end="url(#arrow)" d="M411 324v63"/><path class="dash" marker-end="url(#arrow)" d="M665 324v63"/><path class="route" marker-end="url(#arrow)" d="M941 324v63"/>
+
+  <rect class="net" x="58" y="388" width="292" height="172" rx="12"/>
+  <text class="head" x="78" y="420">Hub VNet</text><text class="text" x="78" y="446">Azure IPAM `/20` from hub pool</text><rect class="group" x="78" y="468" width="252" height="54" rx="8"/><text class="text" x="94" y="491">hub subnet `/24`</text><text class="small" x="94" y="511">default outbound disabled</text>
+  <rect class="net" x="414" y="388" width="292" height="172" rx="12"/>
+  <text class="head" x="434" y="420">App VNet</text><text class="text" x="434" y="446">Azure IPAM `/20` from workload pool</text><rect class="group" x="434" y="468" width="252" height="54" rx="8"/><text class="text" x="450" y="491">workload subnet `/24`</text><text class="small" x="450" y="511">security + TEST-NET route</text>
+  <rect class="net" x="770" y="388" width="292" height="172" rx="12"/>
+  <text class="head" x="790" y="420">Data VNet</text><text class="text" x="790" y="446">Azure IPAM `/20` from workload pool</text><rect class="group" x="790" y="468" width="252" height="54" rx="8"/><text class="text" x="806" y="491">workload subnet `/24`</text><text class="small" x="806" y="511">security + TEST-NET route</text>
+
+  <path class="line" marker-start="url(#arrow)" marker-end="url(#arrow)" d="M350 448h64"/><path class="line" marker-start="url(#arrow)" marker-end="url(#arrow)" d="M706 448h64"/>
+  <text class="small" x="385" y="440" text-anchor="middle">goal state</text><text class="small" x="740" y="440" text-anchor="middle">goal state</text>
+  <text class="small" x="40" y="608">Hub-spoke: four directional peering rows. Mesh: connected group, no peering rows. Security and routing persist through the transition.</text>
+</svg>
+

@@ -1,0 +1,28 @@
+name: Terraform core checks
+description: Format, initialize without a backend, validate, and execute mocked tests.
+
+inputs:
+  terraform-version:
+    description: Terraform CLI version.
+    required: false
+    default: 1.15.8
+
+runs:
+  using: composite
+  steps:
+    - uses: hashicorp/setup-terraform@b9cd54a3c349d3f38e8881555d616ced269862dd # v3
+      with:
+        terraform_version: ${{ inputs.terraform-version }}
+    - name: Check formatting
+      shell: bash
+      run: terraform fmt -check -recursive -diff
+    - name: Initialize without a backend
+      shell: bash
+      run: terraform init -backend=false -lockfile=readonly -input=false
+    - name: Validate configuration
+      shell: bash
+      run: terraform validate -no-color
+    - name: Run mocked Terraform tests
+      shell: bash
+      run: terraform test -no-color
+

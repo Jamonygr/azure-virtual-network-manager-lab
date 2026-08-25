@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1040" height="390" viewBox="0 0 1040 390" role="img" aria-labelledby="title desc">
+  <title id="title">Hub-spoke to mesh transition</title>
+  <desc id="desc">The same hub, app, and data VNets transition from four directional hub-spoke peering rows to one directly connected mesh group without replacing network IDs.</desc>
+  <defs><style>.bg{fill:#f8fafc}.panel{fill:#fff;stroke:#2563eb;stroke-width:2}.node{fill:#ecfdf5;stroke:#15803d;stroke-width:2}.title{font:700 21px Segoe UI,Arial;fill:#10233f}.head{font:700 16px Segoe UI,Arial;fill:#10233f}.text{font:13px Segoe UI,Arial;fill:#334155}.edge{stroke:#2563eb;stroke-width:3;fill:none}.mesh{fill:none;stroke:#7c3aed;stroke-width:3}.arrow{fill:#2563eb}</style><marker id="next" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0 10 5 0 10z" fill="#64748b"/></marker></defs>
+  <rect class="bg" width="1040" height="390" rx="16"/><text class="title" x="34" y="40">Same resources, new connectivity goal state</text>
+  <rect class="panel" x="30" y="65" width="430" height="275" rx="12"/><text class="head" x="50" y="94">1 · HubAndSpoke</text><text class="text" x="50" y="116">Static spoke group · four directional peering rows</text>
+  <rect class="node" x="180" y="137" width="130" height="55" rx="9"/><text class="head" x="245" y="171" text-anchor="middle">Hub VNet</text>
+  <rect class="node" x="70" y="250" width="130" height="55" rx="9"/><text class="head" x="135" y="284" text-anchor="middle">App VNet</text>
+  <rect class="node" x="290" y="250" width="130" height="55" rx="9"/><text class="head" x="355" y="284" text-anchor="middle">Data VNet</text>
+  <path class="edge" d="M206 192L157 250M184 202l-27 48M284 192l49 58M306 202l27 48"/>
+  <path d="M480 202h76" stroke="#64748b" stroke-width="3" marker-end="url(#next)"/><text class="text" x="518" y="187" text-anchor="middle">None</text><text class="text" x="518" y="228" text-anchor="middle">same name</text>
+  <rect class="panel" x="580" y="65" width="430" height="275" rx="12"/><text class="head" x="600" y="94">2 · Mesh</text><text class="text" x="600" y="116">Static all-VNet group · DirectlyConnected</text>
+  <path class="mesh" d="M795 139L670 288h250z"/>
+  <rect class="node" x="730" y="137" width="130" height="55" rx="9"/><text class="head" x="795" y="171" text-anchor="middle">Hub VNet</text>
+  <rect class="node" x="620" y="250" width="130" height="55" rx="9"/><text class="head" x="685" y="284" text-anchor="middle">App VNet</text>
+  <rect class="node" x="840" y="250" width="130" height="55" rx="9"/><text class="head" x="905" y="284" text-anchor="middle">Data VNet</text>
+  <text class="text" x="520" y="370" text-anchor="middle">VNet IDs · subnet IDs · IPAM prefixes · security/routing IDs remain unchanged</text>
+</svg>

@@ -1,0 +1,14 @@
+compact: true
+directory:
+  - .
+download-external-modules: false
+evaluate-variables: true
+framework:
+  - terraform
+output:
+  - cli
+quiet: true
+skip-path:
+  - tests/fixtures
+soft-fail: false
+

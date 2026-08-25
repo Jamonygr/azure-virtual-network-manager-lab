@@ -1,0 +1,10 @@
+misconfigurations:
+  - id: AVD-AZU-0048
+    paths:
+      - "modules/ipam-vnet/main.tf"
+    statement: "This control-plane-only lab intentionally has no NSG; no NIC or workload is deployed."
+  - id: AVD-AZU-0047
+    paths:
+      - "modules/ipam-vnet/main.tf"
+    statement: "DDoS plans are deliberately excluded from this short-lived, no-NIC teaching lab."
+

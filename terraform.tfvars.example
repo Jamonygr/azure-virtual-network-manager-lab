@@ -1,0 +1,14 @@
+environment   = "lab"
+run_id       = "manual"
+location     = "westeurope"
+owner        = "Lab-User"
+topology_mode = "HubAndSpoke"
+
+# Keep the documented IPAM plan unless you intend to destroy and recreate the
+# complete lab. IPAM-managed prefixes are treated as immutable.
+ipam_root_prefix          = "10.240.0.0/12"
+ipam_hub_pool_prefix      = "10.240.0.0/16"
+ipam_workload_pool_prefix = "10.241.0.0/16"
+ipam_reserved_prefix      = "10.241.240.0/20"
+vnet_prefix_length        = 20
+subnet_prefix_length      = 24

@@ -1,0 +1,12 @@
+* text=auto
+*.tf text eol=lf
+*.tfvars text eol=lf
+*.hcl text eol=lf
+*.rego text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+*.md text eol=lf
+*.svg text eol=lf
+*.ps1 text eol=crlf
+*.psm1 text eol=crlf
+

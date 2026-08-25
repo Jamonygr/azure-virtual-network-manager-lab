@@ -1,0 +1,9 @@
+title = "azure-virtual-network-manager-lab"
+
+[extend]
+useDefault = true
+
+[[allowlists]]
+description = "Documentation-only zero GUID used as an invalid-input example"
+regexes = ['''00000000-0000-0000-0000-000000000000''']
+

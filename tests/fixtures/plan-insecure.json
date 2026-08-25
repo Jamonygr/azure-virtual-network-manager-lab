@@ -1,0 +1,22 @@
+{
+  "format_version": "1.2",
+  "resource_changes": [
+    {
+      "address": "azurerm_linux_virtual_machine.forbidden",
+      "type": "azurerm_linux_virtual_machine",
+      "change": { "actions": ["create"], "after": {} }
+    },
+    {
+      "address": "azurerm_network_manager_routing_rule.unsafe",
+      "type": "azurerm_network_manager_routing_rule",
+      "change": {
+        "actions": ["create"],
+        "after": {
+          "destination": [{ "type": "AddressPrefix", "address": "0.0.0.0/0" }],
+          "next_hop": [{ "type": "VirtualAppliance", "address": "10.0.0.4" }]
+        }
+      }
+    }
+  ]
+}
+
