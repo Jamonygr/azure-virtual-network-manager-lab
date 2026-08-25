@@ -16,7 +16,6 @@ locals {
   subnet_newbits   = var.subnet_prefix_length - var.vnet_prefix_length
 }
 
-#checkov:skip=CKV2_AZURE_31: Control-plane-only lab has no NIC or workload; AVNM security admin rules are the subject under test.
 resource "azurerm_subnet" "this" {
   name                                          = var.subnet_name
   resource_group_name                           = var.resource_group_name

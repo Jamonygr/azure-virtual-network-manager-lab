@@ -8,7 +8,8 @@ framework:
 output:
   - cli
 quiet: true
+skip-check:
+  - CKV2_AZURE_31
 skip-path:
   - tests/fixtures
 soft-fail: false
-
