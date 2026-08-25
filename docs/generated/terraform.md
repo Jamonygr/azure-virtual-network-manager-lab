@@ -4,12 +4,14 @@
 | ---- | ------- |
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.15.0, < 2.0.0 |
 | <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm) | = 5.2.0 |
+| <a name="requirement_time"></a> [time](#requirement\_time) | ~> 0.13 |
 
 ## Providers
 
 | Name | Version |
 | ---- | ------- |
 | <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | 5.2.0 |
+| <a name="provider_time"></a> [time](#provider\_time) | 0.14.1 |
 
 ## Resources
 
@@ -17,6 +19,7 @@
 | ---- | ---- |
 | [azurerm_network_manager.lab](https://registry.terraform.io/providers/hashicorp/azurerm/5.2.0/docs/resources/network_manager) | resource |
 | [azurerm_resource_group.lab](https://registry.terraform.io/providers/hashicorp/azurerm/5.2.0/docs/resources/resource_group) | resource |
+| [time_sleep.ipam_pool_settle](https://registry.terraform.io/providers/hashicorp/time/latest/docs/resources/sleep) | resource |
 | [azurerm_subscription.current](https://registry.terraform.io/providers/hashicorp/azurerm/5.2.0/docs/data-sources/subscription) | data source |
 
 ## Inputs

@@ -26,6 +26,15 @@ resource "azurerm_network_manager" "lab" {
   }
 }
 
+# Deleting a network manager 409s while its nested ipamPools settle. This
+# buffer holds the manager delete so a plain `terraform destroy` (outside the
+# lifecycle runner) does not fail intermittently.
+resource "time_sleep" "ipam_pool_settle" {
+  destroy_duration = "90s"
+
+  depends_on = [azurerm_network_manager.lab]
+}
+
 module "ipam_pools" {
   source = "./modules/ipam-pools"
 
@@ -37,6 +46,9 @@ module "ipam_pools" {
   workload_prefix          = var.ipam_workload_pool_prefix
   workload_reserved_prefix = var.ipam_reserved_prefix
   tags                     = local.common_tags
+
+  # Destroy order: pools, then the 90s settle buffer, then the manager.
+  depends_on = [time_sleep.ipam_pool_settle]
 }
 
 module "vnet" {

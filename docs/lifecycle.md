@@ -18,6 +18,8 @@ The runner stages all `.tf` files, modules, tests, state, plans, command logs, a
 10. If targeted undeploy fails, post an empty goal state with Azure CLI, poll until effective configurations and managed routes are absent, then run the full Terraform destroy.
 11. Verify empty state and no Azure residue associated with the run.
 
+A `time_sleep` destroy buffer in the root module holds the network-manager delete for 90 seconds after the IPAM pools are removed, so a manual `terraform destroy` outside the runner does not intermittently fail with 409 conflicts while nested `ipamPools` settle.
+
 ## Evidence and recovery
 
 Every native command records its exit code, output, duration, and timestamp. Sanitized JSON snapshots preserve IPAM allocations, membership, deployment records, effective configurations, peerings, routes, and outputs. Successful cleanup removes state, plans, and generated variable files but retains logs/evidence.

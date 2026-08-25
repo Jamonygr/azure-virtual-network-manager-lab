@@ -35,6 +35,12 @@ try {
   if (-not $SkipOptionalTools) {
     Invoke-Checked 'TFLint' { tflint --recursive }
     Invoke-Checked 'Trivy configuration scan' { trivy config --exit-code 1 --severity HIGH,CRITICAL --ignorefile .trivyignore.yaml --skip-dirs .cache --skip-dirs .terraform . }
+    Invoke-Checked 'Conftest policy (secure fixture)' { conftest test tests/fixtures/plan-secure.json --policy policy --all-namespaces }
+    Invoke-Checked 'Conftest policy (insecure fixture denied)' {
+      conftest test tests/fixtures/plan-insecure.json --policy policy --all-namespaces
+      if ($LASTEXITCODE -eq 0) { throw 'The intentionally insecure fixture was not denied.' }
+      $global:LASTEXITCODE = 0
+    }
     Invoke-Checked 'Terraform documentation drift' { & (Join-Path $root 'scripts/generate-terraform-docs.ps1') -Check }
     Invoke-Checked 'GitHub Actions syntax' { actionlint }
   }
