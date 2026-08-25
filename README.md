@@ -1,5 +1,10 @@
 # Azure Virtual Network Manager create-test-destroy lab
 
+[![Static checks](https://github.com/Jamonygr/azure-virtual-network-manager-lab/actions/workflows/static-checks.yml/badge.svg)](https://github.com/Jamonygr/azure-virtual-network-manager-lab/actions/workflows/static-checks.yml)
+[![Terraform](https://img.shields.io/badge/Terraform-1.15.8-844FBA?logo=terraform&logoColor=white)](versions.tf)
+[![AzureRM provider](https://img.shields.io/badge/AzureRM-5.2.0-0078D4)](versions.tf)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+
 Build a disposable Azure Virtual Network Manager (AVNM) environment, prove its control-plane behavior, change the same environment from hub-spoke to mesh, prove the transition, and remove everything again.
 
 The lab uses Terraform **1.15.8** and exactly **AzureRM 5.2.0**. It demonstrates native AVNM connectivity, security admin, IP address management (IPAM), and managed routing resources. There are no VMs, NICs, public IPs, firewalls, gateways, NAT, diagnostics, or Log Analytics resources.

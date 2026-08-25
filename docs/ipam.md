@@ -2,6 +2,29 @@
 
 Azure Virtual Network Manager IPAM is authoritative for the VNet address spaces. Terraform requests allocation sizes; it does not pick the final VNet prefixes.
 
+```mermaid
+flowchart TD
+    root["Root pool<br/>10.240.0.0/12"]
+    hub["Hub child pool<br/>10.240.0.0/16"]
+    workload["Workload child pool<br/>10.241.0.0/16"]
+    reserved["Static reservation<br/>10.241.240.0/20"]
+    hubvnet["Hub VNet<br/>allocated /20"]
+    appvnet["App VNet<br/>allocated /20"]
+    datavnet["Data VNet<br/>allocated /20"]
+
+    root --> hub
+    root --> workload
+    hub -->|"/20 request"| hubvnet
+    workload -->|"/20 request"| appvnet
+    workload -->|"/20 request"| datavnet
+    workload -.->|"excluded from allocation"| reserved
+    hubvnet --> hubsnet["snet-management /24"]
+    appvnet --> appsnet["snet-workload /24"]
+    datavnet --> datasnet["snet-workload /24"]
+
+    style reserved stroke-dasharray: 5 5
+```
+
 | Pool or allocation | CIDR / request | Purpose |
 | --- | --- | --- |
 | Root | `10.240.0.0/12` | Lab IPAM boundary |
